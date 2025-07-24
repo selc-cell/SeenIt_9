@@ -1,0 +1,427 @@
+/* General Body and Font Styling */
+body {
+font-family: 'Inter', sans-serif; /* Default font for general text */
+margin: 0;
+padding: 0;
+background-color: #f0f2f5; /* Light grey background */
+display: flex;
+justify-content: center;
+align-items: flex-start;
+min-height: 100vh;
+}
+
+.container {
+display: flex;
+width: 1200px; /* Fixed width for desktop */
+background-color: #fff;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+min-height: 90vh;
+margin: 30px 0;
+}
+
+/* Sidebar Styling */
+.sidebar {
+width: 250px;
+background-color: #fff;
+padding: 20px;
+box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+flex-shrink: 0;
+}
+
+/* Logo Font */
+.seenit-logo {
+font-family: 'Anonymous Pro', monospace; /* Anonymous Pro for logo */
+font-size: 28px;
+font-weight: 700; /* Bold */
+margin-bottom: 30px;
+color: #333;
+}
+
+.search-bar {
+display: flex;
+align-items: center;
+background-color: #FFFFFF; /* Search Bar Colour: FFFFFF */
+border-radius: 20px;
+padding: 8px 15px;
+margin-bottom: 25px;
+}
+
+.search-bar .search-icon {
+width: 18px;
+height: 18px;
+margin-right: 10px;
+filter: invert(10%);
+}
+
+.search-bar .search-text {
+color: #3C3C43; /* "Search" word colour: 3C3C43 */
+font-family: 'Inter', sans-serif; /* "Search" word font: Inter Regular */
+font-size: 15px;
+font-weight: 400; /* Regular */
+}
+
+.nav-links {
+display: flex;
+flex-direction: column;
+}
+
+.nav-item {
+display: flex;
+align-items: center;
+padding: 12px 15px;
+margin-bottom: 5px;
+text-decoration: none;
+color: #333;
+font-size: 16px;
+border-radius: 8px;
+transition: background-color 0.2s ease;
+font-family: 'Crimson Text', serif; /* Navigation Bar Font: Crimson Text Regular */
+font-weight: 400; /* Regular weight */
+}
+
+.nav-item:hover {
+background-color: #f0f0f0;
+}
+
+.nav-item img {
+width: 22px;
+height: 22px;
+margin-right: 15px;
+filter: invert(10%);
+}
+
+.nav-item.active {
+background-color: #e0e0e0;
+font-weight: 600; /* Keeping a subtle bold for active state */
+}
+
+/* Main Content Area */
+.main-content {
+flex-grow: 1;
+padding: 30px;
+background-color: #f9f9f9;
+display: flex;
+flex-direction: column;
+}
+
+/* Video Player Section */
+.video-player-section {
+background-color: #1D1F25; /* Video Bar Background: 1D1F25 */
+border-radius: 10px;
+padding: 20px;
+display: flex;
+margin-bottom: 30px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video-card {
+display: flex;
+width: 100%;
+}
+
+.video-thumbnail {
+flex-shrink: 0;
+width: 250px;
+height: 140px;
+background-color: #c4c4c4; /* Video Thumbnail Background: c4c4c4 */
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 8px;
+overflow: hidden;
+margin-right: 20px;
+}
+
+.video-thumbnail img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0.7;
+}
+
+.video-details {
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+color: #fff;
+}
+
+.username {
+font-family: 'Poppins', sans-serif; /* Name tag font: Poppins Light */
+font-weight: 300; /* Light weight */
+font-size: 15px;
+color: #FFFFFF; /* Name tag colour: FFFFFF */
+margin-bottom: 5px;
+}
+
+.video-title {
+font-family: 'Poppins', sans-serif; /* Video title font: Poppins Medium */
+font-weight: 500; /* Medium weight */
+font-size: 20px;
+margin: 0;
+line-height: 1.3;
+color: #fff; /* Ensure title is white */
+}
+
+.video-actions {
+display: flex;
+align-items: center;
+margin-top: 15px;
+flex-wrap: wrap; /* Allow items to wrap if needed */
+}
+
+.play-button {
+background-color: #008968; /* Play Now button background: 008968 */
+color: #FFFFFF; /* Play Now icon and text: FFFFFF */
+border: none;
+border-radius: 25px;
+padding: 10px 20px;
+font-size: 16px;
+font-weight: 600;
+display: flex;
+align-items: center;
+cursor: pointer;
+transition: background-color 0.2s ease;
+flex-shrink: 0; /* Prevent shrinking */
+}
+
+.play-button:hover {
+background-color: #006b50; /* Slightly darker green on hover */
+}
+
+.play-button img {
+width: 20px;
+height: 20px;
+margin-right: 8px;
+filter: invert(100%); /* Makes the black icon white */
+}
+
+.progress-container {
+flex-grow: 1; /* Takes up remaining horizontal space */
+display: flex;
+align-items: center;
+margin-left: 20px; /* Space between play button and progress bar */
+}
+
+.progress-bar-total {
+width: 150px; /* Fixed width for the total bar */
+height: 5px;
+background-color: #282c38; /* Bar indicating how much is left: 282c38 */
+border-radius: 5px;
+overflow: hidden; /* Ensures child fits rounded corners */
+position: relative;
+margin-right: 10px;
+}
+
+.progress-bar-watched {
+height: 100%;
+width: 60%; /* Example: 60% watched. Adjust as needed for static demo */
+background-color: #008968; /* Bar which indicates how much I've watched: 008968 */
+border-radius: 5px;
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.video-timestamp {
+font-family: 'Poppins', sans-serif; /* Timestamp font: Poppins Light */
+font-weight: 300; /* Light weight */
+font-size: 15px;
+color: #FFFFFF; /* Timestamp color: FFFFFF */
+}
+
+
+/* Discussion Section */
+.discussion-section {
+background-color: #D9D9D9; /* Background of the section below: D9D9D9 */
+padding: 25px;
+border-radius: 10px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.discussion-title {
+font-family: 'Poppins', sans-serif; /* Heading font: Poppins Medium */
+font-weight: 500; /* Medium weight */
+font-size: 22px;
+color: #333; /* Default text color */
+margin-bottom: 5px;
+}
+
+.discussion-author {
+font-family: 'Poppins', sans-serif; /* "By Ramasya" font: Poppins Light */
+font-weight: 300; /* Light weight */
+font-size: 14px;
+color: #777; /* Default text color */
+margin-bottom: 15px;
+}
+
+.discussion-description {
+font-family: 'Poppins', sans-serif; /* Episode description font: Poppins Regular */
+font-weight: 400; /* Regular weight */
+font-size: 16px;
+line-height: 1.6;
+color: #444; /* Default text color */
+margin-bottom: 20px;
+}
+
+.comment-prompt {
+font-size: 15px;
+color: #666; /* Default text color */
+margin-bottom: 20px;
+padding-bottom: 15px;
+border-bottom: 1px solid #eee;
+}
+
+/* Write Comment Area */
+.write-comment {
+display: flex;
+align-items: center;
+gap: 15px;
+margin-bottom: 30px;
+padding-bottom: 20px;
+border-bottom: 1px solid #eee;
+background-color: #EEEDED; /* Background of the comment section: EEEDED */
+padding: 20px; /* Added padding to this section */
+border-radius: 8px; /* Added slight rounding */
+box-sizing: border-box; /* Include padding in element's total width/height */
+}
+
+.avatar-placeholder {
+width: 40px;
+height: 40px;
+background-color: #BABABA; /* Avatar thumbnails color: BABABA */
+border-radius: 50%;
+flex-shrink: 0;
+}
+
+#comment-input {
+flex-grow: 1;
+border: 1px solid #ddd;
+border-radius: 20px;
+padding: 10px 15px;
+font-family: 'Poppins', sans-serif; /* "Write a comment" text font: Poppins SemiBold */
+font-weight: 600; /* SemiBold */
+font-size: 15px;
+color: #474747; /* "Write a comment" text color: 474747 */
+resize: vertical;
+min-height: 40px;
+max-height: 120px;
+outline: none;
+transition: border-color 0.2s ease;
+background-color: #fff; /* Ensure textarea background is white */
+}
+
+#comment-input::placeholder { /* For the placeholder text */
+color: #474747; /* "Write a comment" placeholder color: 474747 */
+font-weight: 600; /* SemiBold */
+}
+
+#comment-input:focus {
+border-color: #00e676;
+}
+
+.submit-comment-button {
+background-color: #008968; /* Play Now button background: 008968 (consistent with design) */
+color: #FFFFFF; /* Play Now icon and text: FFFFFF (consistent with design) */
+border: none;
+border-radius: 20px;
+padding: 10px 20px;
+font-size: 15px;
+font-weight: 600;
+cursor: pointer;
+transition: background-color 0.2s ease;
+flex-shrink: 0;
+}
+
+.submit-comment-button:hover {
+background-color: #006b50;
+}
+
+/* Comments List */
+.comments-list {
+display: flex;
+flex-direction: column;
+gap: 25px;
+background-color: #EEEDED; /* Background of the comment section: EEEDED */
+padding: 20px; /* Added padding */
+border-radius: 8px;
+box-sizing: border-box; /* Include padding in element's total width/height */
+margin-top: -20px; /* Adjust to merge with the previous section's padding */
+}
+
+.comment-item {
+display: flex;
+gap: 15px;
+}
+
+.comment-content {
+flex-grow: 1;
+}
+
+.comment-header {
+display: flex;
+align-items: baseline;
+margin-bottom: 5px;
+}
+
+.comment-username {
+font-family: 'Poppins', sans-serif; /* Name of the commenters font: Poppins SemiBold */
+font-weight: 600; /* SemiBold */
+color: #474747; /* Name of the commenters color: 474747 */
+font-size: 15px;
+margin-right: 10px;
+}
+
+.comment-time {
+font-family: 'Poppins', sans-serif; /* Timestamp of comments font: Poppins Regular */
+font-weight: 400; /* Regular */
+font-size: 13px;
+color: #888; /* Default color, adjust if needed */
+}
+
+.comment-text {
+font-family: 'Poppins', sans-serif; /* Comments themselves font: Poppins Regular */
+font-weight: 400; /* Regular */
+font-size: 15px;
+color: #444; /* Default text color */
+line-height: 1.5;
+margin-bottom: 10px;
+}
+
+.comment-actions {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.icon-text {
+display: flex;
+align-items: center;
+color: #777;
+font-size: 14px;
+cursor: pointer;
+}
+
+.icon-text img {
+width: 18px;
+height: 18px;
+margin-right: 5px;
+filter: invert(50%);
+}
+
+.reply-button {
+background: none;
+border: none;
+font-family: 'Poppins', sans-serif; /* Reply text font: Poppins Medium */
+font-weight: 500; /* Medium */
+color: #474747; /* Reply text color: 474747 */
+font-size: 14px;
+cursor: pointer;
+padding: 0;
+transition: color 0.2s ease;
+}
+
+.reply-button:hover {
+color: #333;
+}

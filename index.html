@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeenIt - Discussion</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h1 class="seenit-logo">SeenIt</h1>
+            <div class="search-bar">
+                <img src="images/search.png" alt="Search Icon" class="search-icon">
+                <span class="search-text">Search</span>
+            </div>
+            <nav class="nav-links">
+                <a href="HomePage.html" class="nav-item">
+                    <img src="images/feed.png" alt="Feed Icon">
+                    <span>Feed</span>
+                </a>
+                <a href="explore.html" class="nav-item">
+                    <img src="images/explore.png" alt="Explore Icon">
+                    <span>Explore</span>
+                </a>
+                <a href="index.html" class="nav-item active">
+                    <img src="images/chat.png" alt="Discussion Icon">
+                    <span>Discussion</span>
+                </a>
+                <a href="upload.html" class="nav-item">
+                    <img src="images/cloud_upload.png" alt="Upload Icon">
+                    <span>Upload</span>
+                </a>
+                <a href="SignIn.html" class="nav-item">
+                    <img src="images/profile.png" alt="Profile Icon">
+                    <span>Profile</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="video-player-section">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="images/video_icon_placeholder.png" alt="Video Placeholder Icon" class="video-placeholder-icon">
+                    </div>
+                    <div class="video-details">
+                        <div class="video-info">
+                            <span class="username">@anastasiia.nas</span>
+                            <h2 class="video-title">Story Time: How My Professor Failed Me For NO REASON</h2>
+                        </div>
+                        <div class="video-actions">
+                            <button class="play-button">
+                                <img src="images/play_arrow.png" alt="Play Icon">
+                                Play Now
+                            </button>
+                            <div class="progress-container">
+                                <div class="progress-bar-total">
+                                    <div class="progress-bar-watched"></div>
+                                </div>
+                                <span class="video-timestamp">30:45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="discussion-section">
+                <h3 class="discussion-title">Discuss The Topic!</h3>
+                <p class="discussion-author">by Ramasya</p>
+                <p class="discussion-description">
+                    In this episode, we will be discussing how my professor failed me for no reason! Just because my code didn't work shouldn't mean I get to fail this coding class.
+                </p>
+                <p class="comment-prompt">What do you think? Leave a comment below.</p>
+
+                <div class="write-comment">
+                    <div class="avatar-placeholder comment-avatar"></div>
+                    <textarea id="comment-input" placeholder="Write Comment...."></textarea>
+                    <button id="submit-comment-btn" class="submit-comment-button">Submit</button>
+                </div>
+
+                <div class="comments-list" id="comments-list">
+                    <div class="comment-item">
+                        <div class="avatar-placeholder comment-avatar"></div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-username">Ahad B.</span>
+                                <span class="comment-time">2 Minutes Ago</span>
+                            </div>
+                            <p class="comment-text">Ana your code failed in a CODING COURSE! How else is he supposed to pass you if you failed the only thing the course was about???</p>
+                            <div class="comment-actions">
+                                <span class="icon-text">
+                                    <img src="images/thumb_up_alt.png" alt="Like">
+                                </span>
+                                <span class="icon-text">
+                                    <img src="images/thumb_down_alt.png" alt="Dislike">
+                                </span>
+                                <button class="reply-button">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment-item">
+                        <div class="avatar-placeholder comment-avatar"></div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-username">Salina</span>
+                                <span class="comment-time">5 Minutes Ago</span>
+                            </div>
+                            <p class="comment-text">GIRL HE FAILED ME TOO! I'm with you though I dont think its fair. Crazy story btw XD</p>
+                            <div class="comment-actions">
+                                <span class="icon-text">
+                                    <img src="images/thumb_up_alt.png" alt="Like">
+                                </span>
+                                <span class="icon-text">
+                                    <img src="images/thumb_down_alt.png" alt="Dislike">
+                                </span>
+                                <button class="reply-button">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

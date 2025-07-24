@@ -1,0 +1,177 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>SeenIt - Upload</title>
+     <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&family=Crimson+Text&family=Inter&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background: #f8f8f8;
+            position: fixed;
+            padding: 20px;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .sidebar a:hover {
+            color: #6b46c1;
+        }
+        .sidebar a.active {
+            background: #e0e0e0;
+            color: #333;
+        }
+        .sidebar .search {
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .sidebar .search input {
+            border: none;
+            outline: none;
+            background: none;
+            color: #666;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .upload-box {
+            text-align: center;
+            border: 2px dashed #ccc;
+            padding: 50px;
+            background: #fff;
+            border-radius: 5px;
+            position: relative;
+        }
+        .upload-box p {
+            color: #6b46c1;
+            margin: 10px 0;
+        }
+        .upload-btn {
+            background: #00A86B;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .upload-btn:hover {
+            background: #333;
+        }
+        #fileInput {
+            display: none;
+        }
+        #successMessage {
+            display: none;
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>SeenIt</h2>
+        <div class="search">
+            <span></span>
+            <input type="text" placeholder="Search">
+        </div>
+        <a href="HomePage.html"> Feed</a>
+        <a href="explore.html"> Explore</a>
+        <a href="index.html"> Discussion</a>
+        <a href="Upload.html" class="active"> Upload</a>
+        <a href="SignIn.html"> Profile</a>
+    </div>
+    <div class="content">
+        <div class="upload-box">
+            <p>Drag & drop files or <a href="#" id="browseLink">Browse</a></p>
+            <p>Supported formats: MP4, AVI, MOV, WMV</p>
+            <button class="upload-btn" id="uploadBtn">UPLOAD VIDEO</button>
+            <input type="file" id="fileInput" accept="video/mp4,video/avi,video/mov,video/wmv">
+            <div id="successMessage">Video Uploaded Successfully!</div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('browseLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('uploadBtn').addEventListener('click', function() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            const validFormats = ['video/mp4', 'video/avi', 'video/mov', 'video/wmv'];
+            if (file && validFormats.includes(file.type)) {
+                document.getElementById('successMessage').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000); // Hide after 3 seconds
+            } else {
+                document.getElementById('successMessage').style.display = 'none';
+                alert('Please select a valid video format (MP4, AVI, MOV, WMV).');
+            }
+        });
+    </script>
+</body>
+</html>

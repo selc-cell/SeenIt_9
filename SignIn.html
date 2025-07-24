@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SeenIt - Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Anonymous+Pro:wght@700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      height: 100vh;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 60px;
+    }
+
+    .seenit-logo {
+      font-family: 'Anonymous Pro', monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #000;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .forgot {
+      text-align: right;
+      font-size: 14px;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+
+    .forgot a {
+      text-decoration: none;
+      color: #007b6f;
+      font-weight: 500;
+    }
+
+    button {
+      width: 50%;
+      margin: 0 auto;
+      padding: 12px;
+      background-color: #00A86B;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .link a {
+      color: green;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="seenit-logo">SeenIt</div>
+
+  <div class="form-container">
+    <h2>sign in</h2>
+    <p>Enter your email and password</p>
+    <div class="error" id="error-msg"></div>
+    <form id="signin-form">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <div class="forgot">
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit">Sign In</button>
+      <div class="link">
+        Don't have an account? <a href="signup.html">Sign Up</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('signin-form');
+    const errorMsg = document.getElementById('error-msg');
+
+    const validEmail = "orin@gmail.com";
+    const validPassword = "password123";
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (!email || !password) {
+        errorMsg.textContent = "Please fill in all fields.";
+        return;
+      }
+
+      if (email !== validEmail || password !== validPassword) {
+        errorMsg.textContent = "Invalid email or password.";
+        return;
+      }
+
+      errorMsg.textContent = "";
+      alert("Login successful! Redirecting...");
+      window.location.href = "homepage.html";
+    });
+  </script>
+</body>
+</html>

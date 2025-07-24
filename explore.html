@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeenIt - Explore Topics</title>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .container {
+      display: flex;
+      width: 1200px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      min-height: 90vh;
+      margin: 30px 0;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+      flex-shrink: 0;
+    }
+    .seenit-logo {
+      font-family: 'Anonymous Pro', monospace;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 8px 15px;
+      margin-bottom: 25px;
+    }
+    .search-bar .search-icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+      filter: invert(10%);
+    }
+    .search-bar .search-text {
+      color: #3C3C43;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+    }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px;
+      margin-bottom: 5px;
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      border-radius: 8px;
+      transition: background-color 0.2s ease, font-weight 0.2s ease;
+      font-family: 'Crimson Text', serif;
+      font-weight: 400;
+    }
+    .nav-item:hover {
+      background-color: #f0f0f0;
+      font-weight: 500;
+    }
+    .nav-item img {
+      width: 22px;
+      height: 22px;
+      margin-right: 15px;
+      filter: invert(10%);
+      transition: transform 0.2s ease;
+    }
+    .nav-item:hover img {
+      transform: scale(1.05);
+    }
+    .nav-item.active {
+      background-color: #e0e0e0;
+      font-weight: 600;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 30px;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+    }
+    .main {
+      flex: 1;
+      padding: 2rem;
+    }
+    h1 {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+   
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .topic {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .topic:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="nav-links">
+<a href="HomePage.html" class="nav-item active"><img src="feed.png" alt="Feed">Feed</a>
+<a href="explore.html" class="nav-item"><img src="explore.png" alt="Explore">Explore</a>
+<a href="index.html" class="nav-item"><img src="chat.png" alt="Discussion">Discussion</a>
+<a href="upload.html" class="nav-item"><img src="cloud_upload.png" alt="Upload">Upload</a>
+<a href="SignIn.html" class="nav-item"><img src="profile.png" alt="Profile">Profile</a>
+      </div>
+    </div>
+    <div class="main">
+      <h1>SeenIt</h1>
+      <div class="search">
+        <input type="text" placeholder="Search" />
+      </div>
+      <h2>Explore Topics</h2>
+      <div class="topics">
+        <div class="topic" style="background-color:#158463">Mental Health & Self-Growth</div>
+        <div class="topic" style="background-color:#cd9ddf">Relationships & Identity</div>
+        <div class="topic" style="background-color:#67a9e3">Career & Hustle Culture</div>
+        <div class="topic" style="background-color:#d3e94e; color: #333;">Tech & Ethics</div>
+        <div class="topic" style="background-color:#f8911e">Cultural Roots & Heritage</div>
+        <div class="topic" style="background-color:#7ee2c5; color: #000;">Climate & Sustainability</div>
+        <div class="topic" style="background-color:#e0839b">[Future Topic Placeholder]</div>
+        <div class="topic" style="background-color:#e6b871">[Future Topic Placeholder]</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Placeholder for interactivity
+    const topics = document.querySelectorAll('.topic');
+    topics.forEach(topic => {
+      topic.addEventListener('click', () => {
+        alert(`You clicked: ${topic.textContent}`);
+      });
+    });
+  </script>
+</body>
+</html>
